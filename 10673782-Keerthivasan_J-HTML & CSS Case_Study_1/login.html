@@ -1,0 +1,81 @@
+<html>
+<head>
+	<link rel="stylesheet" href="index.css">
+	<script src="jquery-3.5.1.js"></script>
+	<script>
+		function login(){
+			event.preventDefault();
+			var str="";
+			var us = $("#username").val();
+			console.log(us);
+			var exp = new RegExp("^[a-zA-Z0-9]{6,}$")
+			var result = exp.exec(us);
+			if(result==null){
+				str += "Username Not valid <br><br>";
+			}
+
+			var pas = $("#password").val();
+			console.log(pas);
+			exp = new RegExp("^[0-9a-zA-Z]{4,}$")
+			result = exp.exec(pas	);
+			if(result==null){
+				str += "Password Not valid <br><br>";
+			}
+
+			if(str != ""){
+				document.getElementById("loginsp").innerHTML=str;
+			}
+			else{
+				if(us==pas){
+					$("#loginsp").css({"color":"green","font-weight":"bold" });
+					document.getElementById("loginsp").innerHTML="success <br><br>";
+				}
+				else{
+					$("#loginsp").css({"color":"red","font-weight":"bold"});
+					document.getElementById("loginsp").innerHTML="failed <br><br>";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h2>Welcome to LTI.</h2>
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="home.html">Home</a></li>
+			<li><a href="register.html">Register</a></li>
+			<li><a href="login.html">Login</a></li>
+		</ul>
+		<img src="images/100.jpg" style="float:right;width:50px;height:50px;padding-top:40px">
+	</nav>
+	
+	<br><br><br><br><br><br><br><br><br>
+	
+	<section id="sectionRegister">
+		<h3>Login to a world of opportunities!</h3>
+		<fieldset>
+		<span id="loginsp"><br></span>
+		<form id="formReg" action="" onsubmit="login()">
+			Username<br>
+			<input type="text" id="username" placeholder="Enter Username"  /><br><br>
+			Password<br>
+			<input type="password" id="password" placeholder="Enter Password"  /><br><br>
+			<input type="submit" id="loginButton" value="Login" /><br>
+			<input type="checkbox" id="check" value="" align="left" checked>Remember me!!</input>
+		</form>
+		<div id="div1">
+			<button id="cancel">Cancel</button> &nbsp <a href="home.html" id="forget">forget password?  &nbsp </a>
+		</div>
+		</fieldset>
+		
+		
+	</section>
+	
+	<footer>
+		&#169; 2020 Larsen & Toubro Infotech Limited.
+	</footer>
+</body>
+</html>

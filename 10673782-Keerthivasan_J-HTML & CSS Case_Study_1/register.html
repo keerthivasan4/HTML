@@ -1,0 +1,118 @@
+<html>
+<head>
+	<link rel="stylesheet" href="index.css">
+	<script src="jquery-3.5.1.js"></script>
+	<script>
+		function valid(){
+			event.preventDefault();
+			var str="";
+			var us = $("#username").val();
+			console.log(us);
+			var exp = new RegExp("^[a-zA-Z0-9]{6,}$")
+			var result = exp.exec(us);
+			if(result==null){
+				str += "Username Not valid <br><br>";
+				document.getElementById("sp1").innerHTML="Username Not valid";
+			}
+			else{
+				document.getElementById("sp1").innerHTML="";
+			}
+
+			var us = $("#password").val();
+			console.log(us);
+			var exp = new RegExp("^[0-9a-zA-Z]{4,}$")
+			var result = exp.exec(us);
+			if(result==null){
+				str += "Password Not valid <br><br>";
+				document.getElementById("sp2").innerHTML="Password Not valid";
+			}
+			else{
+				document.getElementById("sp2").innerHTML="";
+			}
+			
+			var uss = $("#email").val();
+			console.log(us);
+			var exps = new RegExp("^[0-9a-zA-Z\.]+[\@][a-z]+.[a-z]+$")
+			var results = exps.exec(uss);
+			console.log("result "+results);
+			if(results==null){
+				str += "Email ID Not valid <br><br>";
+				document.getElementById("sp3").innerHTML="Email ID Not valid";
+			}
+			else{
+				document.getElementById("sp3").innerHTML="";
+			}
+			
+			var us = $("#city").val();
+			console.log(us);
+			var exp = new RegExp("^[0-9a-zA-Z ]{1,}$")
+			var result = exp.exec(us);
+			if(result==null){
+				str += "City ID Not valid <br><br>";
+				document.getElementById("sp4").innerHTML="City Not valid";
+			}
+			else{
+				document.getElementById("sp4").innerHTML="";
+			}
+						
+			var us = $("#mobile").val();
+			console.log(us);
+			var exp = new RegExp("^[6789]{1}[0-9]{9}$")
+			var result = exp.exec(us);
+			if(result==null){
+				str += "Mobile ID Not valid <br><br>";
+				document.getElementById("sp5").innerHTML="Mobile Not valid";
+			}
+			else{
+				document.getElementById("sp5").innerHTML="";
+			}
+
+			if(!str){
+				$("#sp").css({"color":"green","font-weight":"bolder"});
+				document.getElementById("sp").innerHTML="<br>Success";
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<header>
+		<h2>Welcome to LTI.</h2>
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="home.html">Home</a></li>
+			<li><a href="register.html">Register</a></li>
+			<li><a href="login.html">Login</a></li>
+		</ul>
+		<img src="images/100.jpg" style="float:right;width:50px;height:50px;padding-top:40px">
+	</nav>
+	
+	<br><br><br><br><br><br><br><br><br>
+	
+	<section id="sectionRegister">
+		<h3>Register to explore amazing career opportunities.</h3>
+		<fieldset>
+		
+		<form id="formReg" action="" onsubmit="valid()">
+			Username<br>
+			<input type="text" id="username" placeholder="Enter Username"  /> &nbsp <span id="sp1"></span><br><br>
+			Password<br>
+			<input type="text" id="password" placeholder="Enter Password"  /> &nbsp <span id="sp2"></span><br><br>
+			Email Address<br>
+			<input type="text" id="email" placeholder="Enter Email"  /> &nbsp <span id="sp3"></span><br><br>
+			City<br>
+			<input type="text" id="city" placeholder="Enter city"  /> &nbsp <span id="sp4"></span><br><br>
+			Mobile No<br>
+			<input type="text" id="mobile" placeholder="Enter mobile number"  /> &nbsp <span id="sp5"></span><br><br>
+			<input type="submit" id="registerButton" value="Register" /> &nbsp <span id="sp"><br></span></td></tr>
+		</form>
+		</fieldset>
+	</section>
+	
+	<footer>
+		&#169; 2020 Larsen & Toubro Infotech Limited.
+	</footer>
+</body>
+</html>
